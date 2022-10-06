@@ -1,11 +1,14 @@
-﻿using Entities.Concreate;
+﻿using Core.Utilies.Results;
+using Entities.Concreate;
 
 namespace Business.Abstract
 {
     public interface IColorService
     {
-        List<Color> GetCarsByColorId(int id);
-        List<Color> GetAll();
-        void Add(Color color);
+        IDataResult<List<Color>> GetAll();
+        IDataResult<Color> GetById(int id);
+        IResult Add(Color color);
+        IResult Delete(Color color);
+        IResult Update(Color color);
     }
 }
