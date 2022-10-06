@@ -7,6 +7,22 @@ namespace DataAccess.Concreate.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, DatabaseContext>, ICarDal
     {
+        public List<Car> GetCarByBrandId(int id)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                return context.Cars.Where(x => x.BrandId == id).ToList();
+            }
+        }
+
+        public List<Car> GetCarByColorId(int id)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                return context.Cars.Where(x => x.ColorId == id).ToList();
+            }
+        }
+
         public List<CarDetailDto> GetCarDetails()
         {
             using (DatabaseContext context = new DatabaseContext())

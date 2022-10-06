@@ -8,6 +8,8 @@ namespace Business.Abstract
     {
         IDataResult<List<Car>> GetAll();
         IDataResult<List<CarDetailDto>> GetCarDetails();
+        IDataResult<List<Car>> GetCarByBrandId(int id);
+        IDataResult<List<Car>> GetCarByColorId(int id);
         IDataResult<Car> GetById(int id);
         IResult Add(Car car);
         IResult Delete(Car car);
