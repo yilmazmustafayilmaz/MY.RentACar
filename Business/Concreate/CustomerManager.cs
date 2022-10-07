@@ -6,7 +6,7 @@ using Entities.Concreate;
 
 namespace Business.Concreate
 {
-    internal class CustomerManager : ICustomerService
+    public class CustomerManager : ICustomerService
     {
         ICustomerDal _customerDal;
 
@@ -32,9 +32,9 @@ namespace Business.Concreate
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
         }
 
-        public IDataResult<Customer> GetbyId(int customerId)
+        public IDataResult<Customer> GetbyId(int id)
         {
-            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == customerId));
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.Id == id));
         }
 
         public IResult Update(Customer customer)

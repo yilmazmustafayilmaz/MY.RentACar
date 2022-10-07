@@ -6,7 +6,7 @@ using Entities.Concreate;
 
 namespace Business.Concreate
 {
-    internal class UserManager : IUserService
+    public class UserManager : IUserService
     {
         IUserDal _userDal;
         public UserManager(IUserDal userDal)
