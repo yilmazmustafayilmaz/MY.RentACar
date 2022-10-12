@@ -9,5 +9,6 @@
         public static string Updated = "Güncelleme Başarılı";
         public static string InvalidRental = " Kiralanacak araba müsait değil";
         public static string UserNameInvalid = "Kullanıcı ismi geçersiz";
+        public static string ItemAdded = "Fotograf eklendi";
     }
 }

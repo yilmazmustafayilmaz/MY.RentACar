@@ -1,5 +1,5 @@
-﻿using Core.Utilies.Results;
-using Entities.Concreate;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
 
 namespace Business.Abstract
 {
