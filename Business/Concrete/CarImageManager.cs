@@ -5,7 +5,6 @@ using Core.Utilities.Helpers.FileHelpers;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
 {
@@ -19,30 +18,32 @@ namespace Business.Concrete
             _carImageDal = carImageDal;
             _fileHelper = fileHelper;
         }
-        public IResult Add(IFormFile file, CarImage carImage)
+        public IResult Add(CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));
             if (result != null)
             {
                 return result;
             }
-            carImage.ImagePath = _fileHelper.Upload(file, FilePath.ImagesPath);
+            carImage.ImagePath = _fileHelper.Upload(carImage.File, FilePath.ImagesPath);
             carImage.Date = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult("Resim başarıyla yüklendi");
         }
 
-        public IResult Delete(CarImage carImage)
+        public IResult Delete(int id)
         {
-            _fileHelper.Delete(FilePath.ImagesPath + carImage.ImagePath);
-            _carImageDal.Delete(carImage);
-            return new SuccessResult();
+            var deleteCarImage = _carImageDal.Get(x => x.Id == id);
+            _fileHelper.Delete(FilePath.ImagesPath + deleteCarImage.ImagePath);
+            _carImageDal.Delete(deleteCarImage);
+            return new SuccessResult("Resim başarıyla silindi");
         }
-        public IResult Update(IFormFile file, CarImage carImage)
+        public IResult Update(CarImage carImage)
         {
-            carImage.ImagePath = _fileHelper.Update(file, FilePath.ImagesPath + carImage.ImagePath, FilePath.ImagesPath);
-            _carImageDal.Update(carImage);
-            return new SuccessResult();
+            var updateCarImage = _carImageDal.Get(x => x.Id == carImage.Id);
+            updateCarImage.ImagePath = _fileHelper.Update(carImage.File, FilePath.ImagesPath + updateCarImage.ImagePath, FilePath.ImagesPath);
+            _carImageDal.Update(updateCarImage);
+            return new SuccessResult("Resim başarıyla güncellendi");
         }
 
         public IDataResult<List<CarImage>> GetByCarId(int carId)
