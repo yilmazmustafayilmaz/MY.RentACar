@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         public IActionResult Add([FromForm] CarImage carImage)
         {
             var result = _carImageService.Add(carImage);
-            return result.Success ?  Ok(result) : BadRequest(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpDelete("delete/{id}")]

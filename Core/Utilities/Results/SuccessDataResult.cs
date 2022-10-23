@@ -14,5 +14,6 @@
         public SuccessDataResult() : base(default, true)
         {
         }
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Entities.Concrete;
+using Core.Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult Get(int id)
         {
-            var result = _userService.GetbyId(id);
+            var result = _userService.GetById(id);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 

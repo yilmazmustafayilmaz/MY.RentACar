@@ -25,9 +25,7 @@ namespace Core.Utilities.Interceptors
             finally
             {
                 if (isSuccess)
-                {
                     OnSuccess(invocation);
-                }
             }
             OnAfter(invocation);
         }
