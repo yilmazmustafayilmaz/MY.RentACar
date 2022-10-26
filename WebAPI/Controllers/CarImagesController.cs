@@ -15,70 +15,55 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add([FromForm] IFormFile file, [FromForm] CarImage carImage)
+        public IActionResult Add([FromForm] CarImage carImage)
         {
-            var result = _carImageService.Add(file, carImage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            var result = _carImageService.Add(carImage);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
+<<<<<<< HEAD
         [HttpPost("delete")]
         public IActionResult Delete(CarImage carImage)
+=======
+        [HttpDelete("delete/{id}")]
+        public IActionResult Delete(int id)
+>>>>>>> 51ae8d17c561b7535d2766f55b7d6fce3e993628
         {
-            var carDeleteImage = _carImageService.GetByImageId(carImage.Id).Data;
-            var result = _carImageService.Delete(carDeleteImage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            var result = _carImageService.Delete(id);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
+<<<<<<< HEAD
         [HttpPost("update")]
         public IActionResult Update([FromForm] IFormFile file, [FromForm] CarImage carImage)
+=======
+        [HttpPut("update")]
+        public IActionResult Update([FromForm] CarImage carImage)
+>>>>>>> 51ae8d17c561b7535d2766f55b7d6fce3e993628
         {
-            var result = _carImageService.Update(file, carImage);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            var result = _carImageService.Update(carImage);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _carImageService.GetAll();
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("getbycarid")]
         public IActionResult GetByCarId(int carId)
         {
             var result = _carImageService.GetByCarId(carId);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return Ok(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpGet("getbyimageid")]
         public IActionResult GetByImageId(int imageId)
         {
             var result = _carImageService.GetByImageId(imageId);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
+            return result.Success ? Ok(result) : BadRequest(result);
         }
     }
 }

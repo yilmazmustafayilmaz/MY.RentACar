@@ -10,5 +10,12 @@
         public static string InvalidRental = " Kiralanacak araba müsait değil";
         public static string UserNameInvalid = "Kullanıcı ismi geçersiz";
         public static string ItemAdded = "Fotograf eklendi";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Şifre yanlış";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string UserAlreadyExists = "Bu kullanıcı mevcut";
+        public static string UserRegistered = "Kullanıcı kaydedildi";
+        public static string AccessTokenCreated = "Token oluşturuldu";
+      
     }
 }

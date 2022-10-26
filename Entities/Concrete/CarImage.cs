@@ -1,9 +1,6 @@
 ﻿using Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Concrete
 {
@@ -11,7 +8,10 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int CarId { get; set; }
-        public string ImagePath { get; set; }
-        public DateTime Date { get; set; }
+        public string ImagePath { get; set; } = string.Empty;
+        public DateTime Date { get; set; } = DateTime.Now;
+
+        [NotMapped]
+        public IFormFile File { get; set; }
     }
 }
