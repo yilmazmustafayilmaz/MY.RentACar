@@ -40,14 +40,10 @@ namespace Business.Concrete
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email).Data;
             if (userToCheck == null)
-            {
                 return new ErrorDataResult<User>(userToCheck, Messages.UserNotFound);
-            }
 
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
-            {
                 return new ErrorDataResult<User>(userToCheck, Messages.PasswordError);
-            }
 
             return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
         }
@@ -55,9 +51,8 @@ namespace Business.Concrete
         public IResult UserExists(string email)
         {
             if (_userService.GetByMail(email) == new ErrorResult())
-            {
                 return new ErrorResult(Messages.UserAlreadyExists);
-            }
+
             return new SuccessResult();
         }
 

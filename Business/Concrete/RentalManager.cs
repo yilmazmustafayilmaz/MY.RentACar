@@ -19,9 +19,8 @@ namespace Business.Concrete
         {
             var rentalCar = _rentalDal.Get(r => r.CarId == rental.CarId && r.ReturnDate > DateTime.Now);
             if (rentalCar != null)
-            {
                 return new ErrorResult(Messages.InvalidRental);
-            }
+           
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.Added);
         }

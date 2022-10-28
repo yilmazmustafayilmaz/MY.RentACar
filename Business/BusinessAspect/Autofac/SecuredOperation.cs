@@ -26,9 +26,7 @@ namespace Business.BusinessAspect.Autofac
             foreach (var role in _roles)
             {
                 if (roleClaims.Contains(role))
-                {
                     return;
-                }
             }
             throw new Exception(Messages.AuthorizationDenied);
         }

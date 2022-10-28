@@ -20,9 +20,7 @@ namespace Core.Utilities.Security.Hashing
                 for (int i = 0; i < computedHash.Length; i++)
                 {
                     if (computedHash[i] != passwordHash[i])
-                    {
                         return false;
-                    }
                 }
             }
             return true;
