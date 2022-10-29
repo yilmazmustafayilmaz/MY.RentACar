@@ -2,7 +2,7 @@
 using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccess.Concrete.EntityFramework
+namespace DataAccess.Concrete.EntityFramework.Context
 {
     public class DatabaseContext : DbContext
     {

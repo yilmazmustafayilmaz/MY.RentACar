@@ -1,4 +1,4 @@
-﻿using Core.DataAccess;
+﻿using Core.DataAccess.Abstract;
 using Core.Entities.Concrete;
 
 namespace DataAccess.Abstract

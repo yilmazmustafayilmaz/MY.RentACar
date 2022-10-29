@@ -1,8 +1,9 @@
-﻿using Core.Entities;
+﻿using Core.DataAccess.Abstract;
+using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Core.DataAccess.EntityFramework
+namespace Core.DataAccess.Concrete
 {
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
