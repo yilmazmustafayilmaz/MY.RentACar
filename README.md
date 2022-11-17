@@ -11,6 +11,7 @@ Autofac
 FluentValidation
 
 Kullanılan Teknikler
+KULLANILAN TEKNİKLER
 Katmanlı Mimari
 Aspect Oriented Programming
 Json Web Token
