@@ -1,7 +1,6 @@
 # MY.RentACar
 Mini Car Rental Project (.Net Core 6)
 
-Kullanılan Teknolojiler
 KULLANILAN TEKNOLOJİLER
 C#
 Restful API
@@ -10,7 +9,6 @@ EntityFramework
 Autofac
 FluentValidation
 
-Kullanılan Teknikler
 KULLANILAN TEKNİKLER
 Katmanlı Mimari
 Aspect Oriented Programming
