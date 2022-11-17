@@ -2,6 +2,7 @@
 Mini Car Rental Project (.Net Core 6)
 
 Kullanılan Teknolojiler
+KULLANILAN TEKNOLOJİLER
 C#
 Restful API
 MSSQL
